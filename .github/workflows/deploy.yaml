@@ -36,4 +36,4 @@ jobs:
           url: ${{ secrets.CONNECT_URL }}
           api-key: ${{ secrets.CONNECT_API_KEY }}
           access-type: logged_in
-          dir: shiny-python
+          dir: ./shiny-python/:connect-admin-example-shiny-python
