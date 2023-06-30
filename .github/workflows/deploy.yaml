@@ -16,5 +16,4 @@ jobs:
           url: ${{ secrets.CONNECT_URL }}
           api-key: ${{ secrets.CONNECT_API_KEY }}
           access-type: acl
-          dir: |
-            .:/connect-admin-examples/shiny-r
+          dir: shiny-r
