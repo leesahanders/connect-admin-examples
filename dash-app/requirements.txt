@@ -1,0 +1,21 @@
+--index-url https://packagemanager.rstudio.com/pypi/latest/simple
+Brotli
+click
+dash
+dash-core-components
+dash-html-components
+dash-table
+Flask
+Flask-Compress
+itsdangerous
+Jinja2
+MarkupSafe
+numpy
+pandas
+plotly
+python-dateutil
+python-dotenv
+pytz
+six
+tenacity
+Werkzeug
