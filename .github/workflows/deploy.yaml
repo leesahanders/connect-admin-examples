@@ -28,7 +28,7 @@ jobs:
           show-logs: TRUE
           force: TRUE
           dir: |
-          ./shiny-r/:connect-admin-example-shiny-r
+          shiny-r
 
   connect-publish-shiny-python:
     name: connect-publish
