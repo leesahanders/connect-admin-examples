@@ -1,0 +1,77 @@
+---
+title: Lisa's Landing Page
+output:
+  html_document:
+    includes:
+      in_header: header.html
+    theme:
+      bootswatch: minty
+---
+
+Refer to [issue](https://github.com/rstudio/connectwidgets/issues/72) with temporary fix requiring bslib version 0.3.1 (breaking change with sass). 
+
+Older packages can be installed following the instructions [here](https://support.rstudio.com/hc/en-us/articles/219949047-Installing-older-versions-of-packages), or through renv. 
+
+```{r setup, include=FALSE}
+# TODO: 
+# Add tracking for static content (not just shiny)
+library(connectwidgets)
+library(dplyr)
+library(lubridate)
+library(connectapi) #remotes::install_github('rstudio/connectapi')
+library(ggplot2)
+library(tidyr)
+library(purrr)
+library(gt)
+library(httr)
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+
+```
+
+```{r}
+client <- connectwidgets::connect(
+  server  = Sys.getenv("CONNECT_SERVER"),
+  api_key = Sys.getenv("CONNECT_API_KEY")
+  )
+all_content <- client %>%
+  content()
+
+sample_content <- all_content %>%
+  arrange(desc(updated_time)) 
+
+```
+
+
+
+
+
+
+
+
+
+## Old
+
+![](https://source.unsplash.com/1920x1080/?forest "A random forest.")
+
+
+## Content
+
+```{r}
+client <- connectwidgets::connect(
+  server  = Sys.getenv("CONNECT_SERVER"),
+  api_key = Sys.getenv("CONNECT_API_KEY")
+  )
+all_content <- client %>%
+  content()
+
+sample_content <- all_content %>%
+  arrange(desc(updated_time)) 
+
+```
+
+```{r card}
+sample_content %>%
+  filter(grepl("connect-admin-example",title)) %>%
+  rsc_card()
+```
+
