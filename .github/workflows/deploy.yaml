@@ -1,0 +1,20 @@
+name: connect-publish
+on:
+  push:
+    branches: [master, main]
+
+jobs:
+
+  connect-publish-shiny-r:
+    name: connect-publish
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Publish the app to Connect
+        uses: rstudio/actions/connect-publish@main
+        with:
+          url: ${{ secrets.CONNECT_URL }}
+          api-key: ${{ secrets.CONNECT_API_KEY }}
+          access-type: acl
+          dir: |
+            .:/connect-admin-examples/shiny-r

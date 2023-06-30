@@ -42,19 +42,7 @@ sample_content <- all_content %>%
 ```
 
 
-
-
-
-
-
-
-
-## Old
-
-![](https://source.unsplash.com/1920x1080/?forest "A random forest.")
-
-
-## Content
+## Admin Content
 
 ```{r}
 client <- connectwidgets::connect(
@@ -74,4 +62,13 @@ sample_content %>%
   filter(grepl("connect-admin-example",title)) %>%
   rsc_card()
 ```
+
+
+Links to admin dashboards for further metrics: 
+
+- Workbench Admin Dashboard: <https://colorado.posit.co/rstudio/admin>
+- Connect Admin Dashboard: <https://colorado.posit.co/rsc/connect/#/admin/metrics>
+- Datadog: <https://rs-soleng.datadoghq.com/dashboard/lists> 
+- Graph: [https://prom.colorado.posit.co/graph](https://prom.colorado.posit.co/graph "https://prom.colorado.posit.co/graph")
+- Prometheus/Grafana: [https://grafana.colorado.posit.co/](https://grafana.colorado.posit.co/ "https://grafana.colorado.posit.co/")
 
