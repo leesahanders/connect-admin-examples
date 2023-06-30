@@ -15,7 +15,5 @@ Content:
  
  Content deployed can be accessed through the admin dashboard. This works by prefacing each piece of content with connect-admin-example and then matching on the string to pull it into the connectwidgets document. 
  
- 
- 
- 
+
  
