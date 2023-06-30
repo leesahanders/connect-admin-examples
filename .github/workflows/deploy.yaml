@@ -25,7 +25,11 @@ jobs:
           url: ${{ secrets.CONNECT_URL }}
           api-key: ${{ secrets.CONNECT_API_KEY }}
           access-type: logged_in
-          dir: shiny-r
+          namespace: connect-admin-example-shiny-r
+          show-logs: TRUE
+          force: TRUE
+          dir: |
+          ./shiny-r/:connect-admin-example-shiny-r
 
   connect-publish-shiny-python:
     name: connect-publish
