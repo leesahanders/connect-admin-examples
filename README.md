@@ -20,7 +20,10 @@ Content:
  - dash-app
  - streamlit 
  
- 
+ Write the manifests from the main project directory: 
+ ```r
+ rsconnect::writeManifest(appDir="connectwidgets-success-dashboard")
+ ```
 
  
 
