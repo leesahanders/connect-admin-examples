@@ -8,9 +8,26 @@ output:
       bootswatch: minty
 ---
 
-Refer to [issue](https://github.com/rstudio/connectwidgets/issues/72) with temporary fix requiring bslib version 0.3.1 (breaking change with sass). 
+Admin content examples are deployed when a branch is merged into main on github. All content to the Connect server in parallel using github actions. Any failures will be recorded in the deployment log, along with relevant error messages. 
+ 
+Content deployed can be accessed through this admin dashboard. This works by prefacing each piece of content with `connect-admin-example` and then matching on the string to pull it into the connectwidgets document. Content publishing is forced, meaning that content doesn't need to be deleted or meaningfully updated to be deployed in order to test a successful deploy for a content type. 
+ 
+Environment variables can be set during deployment, refer to: <https://github.com/rstudio/actions/tree/main/connect-publish#update-env> 
+ 
+ For github actions further refer to: 
+ 
+- Solutions article: <https://solutions.posit.co/operations/deploy-methods/ci-cd/github-actions/> 
+- rstudo-actions sample yaml: <https://github.com/rstudio/actions/blob/main/examples/connect-publish.yaml> 
 
-Older packages can be installed following the instructions [here](https://support.rstudio.com/hc/en-us/articles/219949047-Installing-older-versions-of-packages), or through renv. 
+Older packages can be installed following the instructions [here](https://support.rstudio.com/hc/en-us/articles/219949047-Installing-older-versions-of-packages), or through renv.
+
+Content: 
+
+ - shiny-python 
+ - shiny-r
+ - dash-app
+ - streamlit 
+ - rmarkdown (connectwidgets)
 
 ```{r setup, include=FALSE}
 # TODO: 
@@ -24,6 +41,7 @@ library(tidyr)
 library(purrr)
 library(gt)
 library(httr)
+#library(connectViz)  #remotes::install_github("RinteRface/connectViz")
 knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
 
 ```
@@ -34,10 +52,7 @@ client <- connectwidgets::connect(
   api_key = Sys.getenv("CONNECT_API_KEY")
   )
 
-# all_content <- client %>%
-#   content()
-
-all_content <- content(client)
+all_content <- connectwidgets::content(client)
 
 sample_content <- all_content %>%
   arrange(desc(updated_time)) 
@@ -52,6 +67,7 @@ client <- connectwidgets::connect(
   server  = Sys.getenv("CONNECT_SERVER"),
   api_key = Sys.getenv("CONNECT_API_KEY")
   )
+
 all_content <- client %>%
   content()
 
@@ -62,7 +78,7 @@ sample_content <- all_content %>%
 
 ```{r card}
 sample_content %>%
-  filter(grepl("connect-admin-example",title)) %>%
+  filter(grepl("connect-admin-example",name)) %>%
   rsc_card()
 ```
 
