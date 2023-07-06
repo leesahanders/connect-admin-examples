@@ -6,7 +6,7 @@ from shiny import App, render, ui
 
 app_ui = ui.page_fluid(
     # App title ----
-    ui.panel_title("Old Faithful Geyser Data"),
+    ui.panel_title("Old Faithful Geyser Data - from Roger"),
     ui.layout_sidebar(
         ui.panel_sidebar(
             ui.input_slider("n", "Number of bins:", 1, 50, 30),
