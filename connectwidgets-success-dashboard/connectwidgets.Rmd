@@ -62,20 +62,6 @@ sample_content <- all_content %>%
 
 ## Admin Content
 
-```{r}
-client <- connectwidgets::connect(
-  server  = Sys.getenv("CONNECT_SERVER"),
-  api_key = Sys.getenv("CONNECT_API_KEY")
-  )
-
-all_content <- client %>%
-  content()
-
-sample_content <- all_content %>%
-  arrange(desc(updated_time)) 
-
-```
-
 ```{r card}
 sample_content %>%
   filter(grepl("connect-admin-example",name)) %>%
