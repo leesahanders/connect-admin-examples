@@ -24,6 +24,13 @@ Content:
  ```r
  rsconnect::writeManifest(appDir="connectwidgets-success-dashboard")
  ```
+ 
+ What would be cool to add: 
+ 
+ - Additional metrics for what "success" looks like, time for page to load, etc. 
+ - Pass / fail in the success dashboard if content is successfully running or not 
+ 
+ 
 
  
 

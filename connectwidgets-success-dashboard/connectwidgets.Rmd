@@ -62,6 +62,8 @@ sample_content <- all_content %>%
 
 ## Admin Content
 
+### Content
+
 ```{r card}
 sample_content %>%
   filter(grepl("connect-admin-example",name)) %>%
@@ -69,7 +71,33 @@ sample_content %>%
 ```
 
 
-Links to admin dashboards for further metrics: 
+### Real-Time Process Data
+
+Get process data from the API <https://docs.posit.co/connect/api/#get-/v1/content/-guid-/jobs>
+
+- Historical metrics capture data at the server level only
+- The instrumentation data does not have memory info
+- `connectapi::get_procs()` will return some information about memory and cpu usage https://pkgs.rstudio.com/connectapi/reference/get_procs.html
+
+
+```{r}
+client <- connectapi::connect(
+  server  = Sys.getenv("CONNECT_SERVER"),
+  api_key = Sys.getenv("CONNECT_API_KEY")
+  )
+
+# all running processes on the server (NOTE: this is only one server of an HA cluster, with no clear server identifier)
+procs <- get_procs(client)
+
+# myapp <- content_item(client, "myguid")
+# 
+# # running jobs for the node that you are on
+# myapp$get_jobs()
+
+print(procs)
+```
+
+### Links to admin dashboards for further metrics
 
 - Workbench Admin Dashboard: <https://colorado.posit.co/rstudio/admin>
 - Connect Admin Dashboard: <https://colorado.posit.co/rsc/connect/#/admin/metrics>
