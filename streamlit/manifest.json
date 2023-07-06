@@ -17,9 +17,6 @@
     "requirements.txt": {
       "checksum": "2a0f5f556bdaa421046cedcf0fcce273"
     },
-    ".ipynb_checkpoints/app-checkpoint.py": {
-      "checksum": "94346b7ca0a4f8f25bca242fb0a9f73f"
-    },
     "app.py": {
       "checksum": "94346b7ca0a4f8f25bca242fb0a9f73f"
     }
